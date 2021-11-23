@@ -24,19 +24,17 @@ import java.awt.geom.Rectangle2D;
 
 public class Player {
 
-
+    // attributes of player
     public static final Color BORDER_COLOR = Color.GREEN.darker().darker();
     public static final Color INNER_COLOR = Color.GREEN;
-
     private static final int DEF_MOVE_AMOUNT = 5;
-
     private Rectangle playerFace;
     private Point ballPoint;
     private int moveAmount;
     private int min;
     private int max;
 
-
+    // constructor of pLayer class
     public Player(Point ballPoint,int width,int height,Rectangle container) {
         this.ballPoint = ballPoint;
         moveAmount = 0;

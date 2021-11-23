@@ -78,7 +78,6 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.setLocation(x,y);
     }
 
-
     @Override
     public void windowGainedFocus(WindowEvent windowEvent) {
         /*

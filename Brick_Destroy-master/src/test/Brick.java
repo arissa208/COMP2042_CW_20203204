@@ -25,6 +25,7 @@ abstract public class Brick {
     public static final int RIGHT_IMPACT = 400;
     private boolean broken;
 
+    // getter for rnd
     public static Random getRnd() {
         return rnd;
     }

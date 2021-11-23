@@ -34,23 +34,25 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     private static final String START_TEXT = "Start";
     private static final String MENU_TEXT = "Exit";
 
-    private static final Color BG_COLOR = Color.GREEN.darker();
+    private static final Color BG_COLOR = Color.BLACK.darker();
     private static final Color BORDER_COLOR = new Color(200,8,21); //Venetian Red
     private static final Color DASH_BORDER_COLOR = new  Color(255, 216, 0);//school bus yellow
-    private static final Color TEXT_COLOR = new Color(16, 52, 166);//egyptian blue
+    private static final Color TEXT_COLOR = new Color(63, 39, 26);//egyptian blue
     private static final Color CLICKED_BUTTON_COLOR = BG_COLOR.brighter();
     private static final Color CLICKED_TEXT = Color.WHITE;
     private static final int BORDER_SIZE = 5;
     private static final float[] DASHES = {12,6};
 
+    // shapes
     private Rectangle menuFace;
     private Rectangle startButton;
     private Rectangle menuButton;
 
-
+    // border
     private BasicStroke borderStoke;
     private BasicStroke borderStoke_noDashes;
 
+    // fonts
     private Font greetingsFont;
     private Font gameTitleFont;
     private Font creditsFont;
@@ -60,7 +62,6 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     private boolean startClicked;
     private boolean menuClicked;
-
 
     public HomeMenu(GameFrame owner,Dimension area){
 
@@ -93,11 +94,9 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
-
     public void paint(Graphics g){
         drawMenu((Graphics2D)g);
     }
-
 
     public void drawMenu(Graphics2D g2d){
 
@@ -296,7 +295,6 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     public void mouseExited(MouseEvent mouseEvent) {
 
     }
-
 
     @Override
     public void mouseDragged(MouseEvent mouseEvent) {

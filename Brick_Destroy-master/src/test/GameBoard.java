@@ -26,23 +26,19 @@ import java.awt.font.FontRenderContext;
 
 public class GameBoard extends JComponent implements KeyListener,MouseListener,MouseMotionListener {
 
+    // attributes for pause screen
     private static final String CONTINUE = "Continue";
     private static final String RESTART = "Restart";
     private static final String EXIT = "Exit";
     private static final String PAUSE = "Pause Menu";
     private static final int TEXT_SIZE = 30;
     private static final Color MENU_COLOR = new Color(0,255,0);
-
-
     private static final int DEF_WIDTH = 600;
     private static final int DEF_HEIGHT = 450;
-
     private static final Color BG_COLOR = Color.WHITE;
 
     private Timer gameTimer;
-
     private Wall wall;
-
     private String message;
 
     private boolean showPauseMenu;
@@ -56,14 +52,11 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
     private DebugConsole debugConsole;
 
-
     public GameBoard(JFrame owner){
         super();
 
         strLen = 0;
         showPauseMenu = false;
-
-
 
         menuFont = new Font("Monospaced",Font.PLAIN,TEXT_SIZE);
 
@@ -107,8 +100,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
     }
 
-
-
     private void initialize(){
         this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));
         this.setFocusable(true);
@@ -117,7 +108,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
     }
-
 
     public void paint(Graphics g){
 
