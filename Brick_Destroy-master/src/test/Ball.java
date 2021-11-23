@@ -8,12 +8,14 @@ import java.awt.geom.RectangularShape;
  * Created by filippo on 04/09/16.
  *
  */
+
+// Ball Class
 abstract public class Ball {
 
+    // Attributes of ball
     private Shape ballFace;
 
     private Point2D center;
-
     Point2D up;
     Point2D down;
     Point2D left;
@@ -25,6 +27,7 @@ abstract public class Ball {
     private int speedX;
     private int speedY;
 
+    // Constructor of ball class
     public Ball(Point2D center,int radiusA,int radiusB,Color inner,Color border){
         this.center = center;
 
@@ -47,8 +50,10 @@ abstract public class Ball {
         speedY = 0;
     }
 
+    // makeBall abstract method
     protected abstract Shape makeBall(Point2D center,int radiusA,int radiusB);
 
+    // movement methods
     public void move(){
         RectangularShape tmp = (RectangularShape) ballFace;
         center.setLocation((center.getX() + speedX),(center.getY() + speedY));
@@ -61,44 +66,12 @@ abstract public class Ball {
 
         ballFace = tmp;
     }
-
-    public void setSpeed(int x,int y){
-        speedX = x;
-        speedY = y;
-    }
-
-    public void setXSpeed(int s){
-        speedX = s;
-    }
-
-    public void setYSpeed(int s){
-        speedY = s;
-    }
-
     public void reverseX(){
         speedX *= -1;
     }
-
     public void reverseY(){
         speedY *= -1;
     }
-
-    public Color getBorderColor(){
-        return border;
-    }
-
-    public Color getInnerColor(){
-        return inner;
-    }
-
-    public Point2D getPosition(){
-        return center;
-    }
-
-    public Shape getBallFace(){
-        return ballFace;
-    }
-
     public void moveTo(Point p){
         center.setLocation(p);
 
@@ -110,6 +83,17 @@ abstract public class Ball {
         ballFace = tmp;
     }
 
+    // setter for private fields
+    public void setSpeed(int x,int y){
+        speedX = x;
+        speedY = y;
+    }
+    public void setXSpeed(int s){
+        speedX = s;
+    }
+    public void setYSpeed(int s){
+        speedY = s;
+    }
     private void setPoints(double width,double height){
         up.setLocation(center.getX(),center.getY()-(height / 2));
         down.setLocation(center.getX(),center.getY()+(height / 2));
@@ -118,10 +102,22 @@ abstract public class Ball {
         right.setLocation(center.getX()+(width / 2),center.getY());
     }
 
+    // getter for private fields
+    public Color getBorderColor(){
+        return border;
+    }
+    public Color getInnerColor(){
+        return inner;
+    }
+    public Point2D getPosition(){
+        return center;
+    }
+    public Shape getBallFace(){
+        return ballFace;
+    }
     public int getSpeedX(){
         return speedX;
     }
-
     public int getSpeedY(){
         return speedY;
     }
