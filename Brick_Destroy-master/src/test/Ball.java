@@ -58,7 +58,6 @@ abstract public class Ball {
         tmp.setFrame((center.getX() - (w / 2)), (center.getY() - (h / 2)), w, h);
         setPoints(w, h);
 
-
         ballFace = tmp;
     }
 

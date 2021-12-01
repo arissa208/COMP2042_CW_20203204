@@ -6,15 +6,9 @@ import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
-/**
- * Created by filippo on 04/09/16.
- */
-
 //Brick abstract class
 abstract public class Brick {
 
-    //Crack attributes
-    public static final int MIN_CRACK = 1;
     public static final int DEF_CRACK_DEPTH = 1;
     public static final int DEF_STEPS = 35;
 
@@ -52,12 +46,14 @@ abstract public class Brick {
     }
 
     protected abstract Shape makeBrickFace(Point pos, Dimension size);
+
     public abstract Shape getBrick();
 
     // getter for borderColor, innerColor
     public Color getBorderColor() {
         return border;
     }
+
     public Color getInnerColor() {
         return inner;
     }
@@ -75,9 +71,11 @@ abstract public class Brick {
         impact();
         return broken;
     }
+
     public final boolean isBroken() {
         return broken;
     }
+
     public final int findImpact(Ball b) {
         if (broken)
             return 0;
@@ -92,11 +90,11 @@ abstract public class Brick {
             out = UP_IMPACT;
         return out;
     }
+
     public void repair() {
         broken = false;
         strength = fullStrength;
     }
-
 
 
 }
