@@ -25,8 +25,8 @@ public class Crack {
 
 
     public Crack(Brick brick, int crackDepth, int steps) {
-        this.brick = brick;
 
+        this.brick = brick;
         crack = new GeneralPath();
         this.crackDepth = crackDepth;
         this.steps = steps;
@@ -35,7 +35,6 @@ public class Crack {
 
 
     public GeneralPath draw() {
-
         return crack;
     }
 
@@ -86,7 +85,6 @@ public class Crack {
     protected void makeCrack(Point start, Point end) {
 
         GeneralPath path = new GeneralPath();
-
 
         path.moveTo(start.x, start.y);
 
