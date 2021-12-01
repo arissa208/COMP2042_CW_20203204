@@ -38,7 +38,6 @@ public class SteelBrick extends Brick {
         brickFace = super.brickFace;
     }
 
-
     @Override
     protected Shape makeBrickFace(Point pos, Dimension size) {
         return new Rectangle(pos, size);
