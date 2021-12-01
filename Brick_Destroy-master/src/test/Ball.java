@@ -4,14 +4,9 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.geom.RectangularShape;
 
-/**
- *
- */
 
-// Ball Class
 abstract public class Ball {
 
-    // Attributes of ball
     private Shape ballFace;
 
     private final Point2D center;
@@ -27,7 +22,13 @@ abstract public class Ball {
     private int speedY;
 
 
-    // Constructor of ball class
+    /** Represents the description of ball
+     * @param center Position of the ball
+     * @param radiusA Vertical location of the ball
+     * @param radiusB Horizontal location of the ball
+     * @param inner Color of the ball
+     * @param border Colour of ball's border
+     */
     public Ball(Point2D center, int radiusA, int radiusB, Color inner, Color border) {
         this.center = center;
 
@@ -42,7 +43,6 @@ abstract public class Ball {
         left.setLocation(center.getX() - (radiusA / 2), center.getY());
         right.setLocation(center.getX() + (radiusA / 2), center.getY());
 
-
         ballFace = makeBall(center, radiusA, radiusB);
         this.border = border;
         this.inner = inner;
@@ -50,10 +50,18 @@ abstract public class Ball {
         speedY = 0;
     }
 
-    // makeBall abstract method
+
+    /** Creates the ball
+     * @param center Position of ball
+     * @param radiusA Vertical location of the ball
+     * @param radiusB Horizontal location of the ball
+     * @return Shape of a ball
+     */
     protected abstract Shape makeBall(Point2D center, int radiusA, int radiusB);
 
-    // movement methods
+
+    /** Moves ball
+     */
     public void move() {
         RectangularShape tmp = (RectangularShape) ballFace;
         center.setLocation((center.getX() + speedX), (center.getY() + speedY));
@@ -85,20 +93,33 @@ abstract public class Ball {
         ballFace = tmp;
     }
 
-    // setter for private fields
+    /** Set speed for an ball
+     * @param x Horizontal speed of ball
+     * @param y Vertical speed of ball
+     */
     public void setSpeed(int x, int y) {
         speedX = x;
         speedY = y;
     }
 
+    /** Sets the horizontal speed of ball
+     * @param s Speed of ball
+     */
     public void setXSpeed(int s) {
         speedX = s;
     }
 
+    /** Sets tge vertical speed of ball
+     * @param s Speed of ball
+     */
     public void setYSpeed(int s) {
         speedY = s;
     }
 
+    /** Set location for an element
+     * @param width Width of page
+     * @param height Height of page
+     */
     private void setPoints(double width, double height) {
         up.setLocation(center.getX(), center.getY() - (height / 2));
         down.setLocation(center.getX(), center.getY() + (height / 2));
@@ -107,27 +128,44 @@ abstract public class Ball {
         right.setLocation(center.getX() + (width / 2), center.getY());
     }
 
-    // getter for private fields
+    /** Gets the border color of ball
+     * @return Color of ball's border
+     */
     public Color getBorderColor() {
         return border;
     }
 
+    /** Gets the inner color of ball
+     * @return Inner color of ball
+     */
     public Color getInnerColor() {
         return inner;
     }
 
+    /** Get position of ball
+     * @return x,y coordinates for position of ball
+     */
     public Point2D getPosition() {
         return center;
     }
 
+    /** Gets shape of ball
+     * @return shape of ball
+     */
     public Shape getBallFace() {
         return ballFace;
     }
 
+    /** Gets horizontal speed of ball
+     * @return Integer speed of ball
+     */
     public int getSpeedX() {
         return speedX;
     }
 
+    /** Gets vertical speed of ball
+     * @return Integer vertical speed of ball
+     */
     public int getSpeedY() {
         return speedY;
     }
