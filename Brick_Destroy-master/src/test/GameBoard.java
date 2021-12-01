@@ -79,8 +79,8 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                     wall.wallReset();
                     message = String.format("Game over \n Player Score: %d",wall.getScore());
                     tmpScore = Integer.toString(wall.getScore());
-                    ImageIcon icon = new ImageIcon("gameover2.png");
-                    JOptionPane.showMessageDialog(null, "Your score is " + tmpScore + "!", "Game Over", JOptionPane.INFORMATION_MESSAGE, icon);
+                    ImageIcon icon = new ImageIcon("gameover.png");
+                    JOptionPane.showMessageDialog(null, "Your score is " + tmpScore + "!", "GAME OVER", JOptionPane.INFORMATION_MESSAGE, icon);
                     wall.setScore(0);
                 }
                 wall.ballReset();
