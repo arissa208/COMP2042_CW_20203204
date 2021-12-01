@@ -4,6 +4,10 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.geom.RectangularShape;
 
+/**
+ *
+ */
+
 // Ball Class
 abstract public class Ball {
 
@@ -21,6 +25,7 @@ abstract public class Ball {
 
     private int speedX;
     private int speedY;
+
 
     // Constructor of ball class
     public Ball(Point2D center, int radiusA, int radiusB, Color inner, Color border) {

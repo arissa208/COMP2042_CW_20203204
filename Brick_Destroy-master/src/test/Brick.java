@@ -6,7 +6,6 @@ import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
-//Brick abstract class
 abstract public class Brick {
 
     public static final int DEF_CRACK_DEPTH = 1;
@@ -19,12 +18,6 @@ abstract public class Brick {
     public static final int RIGHT_IMPACT = 400;
     private boolean broken;
 
-    // getter for rnd
-    public static Random getRnd() {
-        return rnd;
-    }
-
-    //Brick attributes
     private static Random rnd;
     private String name;
     Shape brickFace;
@@ -33,7 +26,16 @@ abstract public class Brick {
     private int fullStrength;
     private int strength;
 
-    // constructor of brick class
+    protected abstract Shape makeBrickFace(Point pos, Dimension size);
+    public abstract Shape getBrick();
+
+    /** Represents the description of brick
+     * @param pos Position of bricks
+     * @param size Size of brick
+     * @param border The border of the brick
+     * @param inner Colour of the brick
+     * @param strength Strength of brick
+     */
     public Brick(Point pos, Dimension size, Color border, Color inner, int strength) {
         rnd = new Random();
         broken = false;
@@ -41,29 +43,42 @@ abstract public class Brick {
         this.border = border;
         this.inner = inner;
         this.fullStrength = this.strength = strength;
-
     }
 
-    protected abstract Shape makeBrickFace(Point pos, Dimension size);
-
-    public abstract Shape getBrick();
-
-    // getter for borderColor, innerColor
+    /** Gets the bricks' border color
+     * @return Color of the bricks' border
+     */
     public Color getBorderColor() {
         return border;
     }
 
+    /** Gets the brick's color
+     * @return Color of brick
+     */
     public Color getInnerColor() {
         return inner;
     }
 
-    // impact method
+    /** Generates a random number
+     * @return random number
+     */
+    public static Random getRnd() {
+        return rnd;
+    }
+
+    /** Reduces the strength of brick after impact
+     *
+     */
     public void impact() {
         strength--;
         broken = (strength == 0);
     }
 
-    //setter for impact
+    /** Sets the impact on the brick
+     * @param point Position of impact
+     * @param dir Direction of impact
+     * @return true if broken is false, otherwise false.
+     */
     public boolean setImpact(Point2D point, int dir) {
         if (broken)
             return false;
@@ -71,10 +86,17 @@ abstract public class Brick {
         return broken;
     }
 
+    /** Gets condition of brick, whether it's broken or otherwise
+     * @return true if broken is true, otherwise false.
+     */
     public final boolean isBroken() {
         return broken;
     }
 
+    /** Gets all the impact on the brick
+     * @param b Ball
+     * @return Integer representing the direction of impact
+     */
     public final int findImpact(Ball b) {
         if (broken)
             return 0;
@@ -90,12 +112,13 @@ abstract public class Brick {
         return out;
     }
 
+    /** Resets the condition of the bricks
+     *
+     */
     public void repair() {
         broken = false;
         strength = fullStrength;
     }
-
-
 }
 
 

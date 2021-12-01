@@ -168,11 +168,12 @@ public class Wall {
     private Brick[][] makeLevels(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio) {
         Brick[][] tmp = new Brick[LEVELS_COUNT][];
         tmp[0] = makeSingleTypeLevel(drawArea, brickCount, lineCount, brickDimensionRatio, CLAY);
-        tmp[1] = makeChessboardLevel(drawArea, brickCount, lineCount, brickDimensionRatio, CLAY, CEMENT);
-        tmp[2] = makeChessboardLevel(drawArea, brickCount, lineCount, brickDimensionRatio, CLAY, STEEL);
-        tmp[3] = makeChessboardLevel(drawArea, brickCount, lineCount, brickDimensionRatio, STEEL, CEMENT);
-        tmp[4] = makeChessboardLevel(drawArea, brickCount, lineCount, brickDimensionRatio, CEMENT, CEMENT);
-        tmp[5] = makeChessboardLevel(drawArea, brickCount, lineCount, brickDimensionRatio, STEEL, STEEL);
+        tmp[1] = makeSingleTypeLevel(drawArea, brickCount, lineCount, brickDimensionRatio, STEEL);
+        tmp[2] = makeSingleTypeLevel(drawArea, brickCount, lineCount, brickDimensionRatio, CEMENT);
+        tmp[3] = makeChessboardLevel(drawArea, brickCount, lineCount, brickDimensionRatio, CLAY, STEEL);
+        tmp[4] = makeChessboardLevel(drawArea, brickCount, lineCount, brickDimensionRatio, CLAY, CEMENT);
+        tmp[5] = makeChessboardLevel(drawArea, brickCount, lineCount, brickDimensionRatio, CEMENT, STEEL);
+
         return tmp;
     }
 
@@ -218,7 +219,7 @@ public class Wall {
 
                 case Brick.DOWN_IMPACT:
                     ball.reverseY();
-                    score+= 10;
+                    score += 10;
                     return b.setImpact(ball.up, Crack.DOWN);
 
                 //Horizontal Impact

@@ -22,8 +22,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.font.FontRenderContext;
 
-
-
 public class GameBoard extends JComponent implements KeyListener,MouseListener,MouseMotionListener {
 
     // attributes for pause screen
@@ -61,7 +59,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         menuFont = new Font("Monospaced",Font.PLAIN,TEXT_SIZE);
 
-
         this.initialize();
         message = "";
         wall = new Wall(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3, 3,new Point(300,430));
@@ -94,7 +91,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                     wall.nextLevel();
                 }
                 else{
-                    message = "ALL WALLS DESTROYED";
                     ImageIcon icon2 = new ImageIcon("confetti.png");
                     JOptionPane.showMessageDialog(null, "You finished the game!", "Congratulations!", JOptionPane.INFORMATION_MESSAGE, icon2);
 
