@@ -95,6 +95,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                 }
                 else{
                     message = "ALL WALLS DESTROYED";
+                    ImageIcon icon2 = new ImageIcon("confetti.png");
+                    JOptionPane.showMessageDialog(null, "You finished the game!", "Congratulations!", JOptionPane.INFORMATION_MESSAGE, icon2);
+
                     gameTimer.stop();
                 }
             }
