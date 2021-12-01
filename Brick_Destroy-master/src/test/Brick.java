@@ -1,8 +1,6 @@
 package test;
 
 import java.awt.*;
-import java.awt.Point;
-import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
@@ -19,11 +17,10 @@ abstract public class Brick {
     private boolean broken;
 
     private static Random rnd;
-    private String name;
     Shape brickFace;
-    private Color border;
-    private Color inner;
-    private int fullStrength;
+    private final Color border;
+    private final Color inner;
+    private final int fullStrength;
     private int strength;
 
     protected abstract Shape makeBrickFace(Point pos, Dimension size);
@@ -90,7 +87,7 @@ abstract public class Brick {
      * @return true if broken is true, otherwise false.
      */
     public final boolean isBroken() {
-        return broken;
+        return !broken;
     }
 
     /** Gets all the impact on the brick
