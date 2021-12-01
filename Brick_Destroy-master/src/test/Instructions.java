@@ -195,19 +195,14 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
     private void drawButton(Graphics2D g2d) {
 
         FontRenderContext frc = g2d.getFontRenderContext();
-
         Rectangle2D returnRect = returnFont.getStringBounds(RETURN_TEXT, frc);
-
         g2d.setFont(returnFont);
-
         int x = (menuFace.width - returnButton.width) / 2;
         int y = (int) ((menuFace.height - returnButton.height) * 0.8);
-
         returnButton.setLocation(x, y);
 
         x = (int) (returnButton.getWidth() - returnRect.getWidth()) / 2;
         y = (int) (returnButton.getHeight() - returnRect.getHeight()) / 2;
-
         x += returnButton.x;
         y += returnButton.y + (returnButton.height * 0.4);
 

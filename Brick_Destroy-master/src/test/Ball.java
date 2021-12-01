@@ -4,11 +4,6 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.geom.RectangularShape;
 
-/**
- * Created by filippo on 04/09/16.
- *
- */
-
 // Ball Class
 abstract public class Ball {
 
@@ -121,6 +116,5 @@ abstract public class Ball {
     public int getSpeedY(){
         return speedY;
     }
-
 
 }
