@@ -34,10 +34,9 @@ abstract public class Brick {
     private int strength;
 
     // constructor of brick class
-    public Brick(String name, Point pos, Dimension size, Color border, Color inner, int strength) {
+    public Brick(Point pos, Dimension size, Color border, Color inner, int strength) {
         rnd = new Random();
         broken = false;
-        this.name = name;
         brickFace = makeBrickFace(pos, size);
         this.border = border;
         this.inner = inner;
