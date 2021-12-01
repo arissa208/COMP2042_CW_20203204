@@ -73,11 +73,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         gameTimer = new Timer(10,e ->{
             wall.move();
             wall.findImpacts();
-            message = String.format("Bricks: %d Balls %d Score: %d",wall.getBrickCount(),wall.getBallCount(), wall.getScore());
+            message = String.format("Bricks: %d | Balls %d",wall.getBrickCount(),wall.getBallCount());
             if(wall.isBallLost()){
                 if(wall.ballEnd()){
                     wall.wallReset();
-                    message = String.format("Game over \n Player Score: %d",wall.getScore());
                     tmpScore = Integer.toString(wall.getScore());
                     ImageIcon icon = new ImageIcon("gameover.png");
                     JOptionPane.showMessageDialog(null, "Your score is " + tmpScore + "!", "GAME OVER", JOptionPane.INFORMATION_MESSAGE, icon);
