@@ -38,19 +38,20 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private static final Color BG_COLOR = Color.WHITE;
 
     private Timer gameTimer;
-    private Wall wall;
+    private final Wall wall;
     private String message;
+    private String tmpScore;
 
     private boolean showPauseMenu;
 
-    private Font menuFont;
+    private final Font menuFont;
 
     private Rectangle continueButtonRect;
     private Rectangle exitButtonRect;
     private Rectangle restartButtonRect;
     private int strLen;
 
-    private DebugConsole debugConsole;
+    private final DebugConsole debugConsole;
 
     public GameBoard(JFrame owner){
         super();
@@ -63,7 +64,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         this.initialize();
         message = "";
-        wall = new Wall(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,new Point(300,430));
+        wall = new Wall(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3, 3,new Point(300,430));
 
         debugConsole = new DebugConsole(owner,wall,this);
         //initialize the first level
@@ -72,11 +73,15 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         gameTimer = new Timer(10,e ->{
             wall.move();
             wall.findImpacts();
-            message = String.format("Bricks: %d Balls %d",wall.getBrickCount(),wall.getBallCount());
+            message = String.format("Bricks: %d Balls %d Score: %d",wall.getBrickCount(),wall.getBallCount(), wall.getScore());
             if(wall.isBallLost()){
                 if(wall.ballEnd()){
                     wall.wallReset();
-                    message = "Game over";
+                    message = String.format("Game over \n Player Score: %d",wall.getScore());
+                    tmpScore = Integer.toString(wall.getScore());
+                    ImageIcon icon = new ImageIcon("gameover2.png");
+                    JOptionPane.showMessageDialog(null, "Your score is " + tmpScore + "!", "Game Over", JOptionPane.INFORMATION_MESSAGE, icon);
+                    wall.setScore(0);
                 }
                 wall.ballReset();
                 gameTimer.stop();
