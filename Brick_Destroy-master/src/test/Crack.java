@@ -22,7 +22,11 @@ public class Crack {
     private int crackDepth;
     private int steps;
 
-
+    /** Creates a crack
+     * @param brick Brick element
+     * @param crackDepth Depth of crack
+     * @param steps Crack steps
+     */
     public Crack(Brick brick, int crackDepth, int steps) {
 
         this.brick = brick;
@@ -32,6 +36,9 @@ public class Crack {
 
     }
 
+    /** Drawing crack on brick
+     * @return crack on brick
+     */
     public GeneralPath draw() {
         return crack;
     }
