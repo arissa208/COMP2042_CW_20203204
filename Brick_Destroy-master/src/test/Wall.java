@@ -25,7 +25,6 @@ import java.util.Random;
 public class Wall {
 
     private static final int LEVELS_COUNT = 6;
-
     private static final int CLAY = 1;
     private static final int STEEL = 2;
     private static final int CEMENT = 3;
@@ -46,6 +45,13 @@ public class Wall {
     private int ballCount;
     private boolean ballLost;
 
+    /** Represents the wall of bricks
+     * @param drawArea shape of brick
+     * @param brickCount number of bricks
+     * @param lineCount number of lines of bricks
+     * @param brickDimensionRatio dimension ratio of brick
+     * @param ballPos position of ball
+     */
     public Wall(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio, Point ballPos) {
 
         this.startPoint = new Point(ballPos);
@@ -76,6 +82,15 @@ public class Wall {
 
     }
 
+    /** Builds the bricks of the wall
+     * @param drawArea shape of brick
+     * @param brickCnt number of bricks
+     * @param lineCnt size of brick
+     * @param brickSizeRatio size ratio of brick
+     * @param typeA type of brick
+     * @param typeB type of brick
+     * @return current level
+     */
     private Brick[] makeChessboardLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int typeA, int typeB) {
         /*
           if brickCount is not divisible by line count,brickCount is adjusted to the biggest
@@ -121,10 +136,20 @@ public class Wall {
         return tmp;
     }
 
+    /** Gets new position of ball
+     * @param ballPos position of ball
+     */
     private void makeBall(Point2D ballPos) {
         ball = new RubberBall(ballPos);
     }
 
+    /** Creates walls of bricks for different levels
+     * @param drawArea shape of brick
+     * @param brickCount number of bricks
+     * @param lineCount number of lines of bricks
+     * @param brickDimensionRatio dimension ratio of bricks
+     * @return current level
+     */
     private Brick[][] makeLevels(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio) {
         Brick[][] tmp = new Brick[LEVELS_COUNT][];
         tmp[0] = makeChessboardLevel(drawArea, brickCount, lineCount, brickDimensionRatio, CLAY, CLAY);
@@ -137,19 +162,31 @@ public class Wall {
         return tmp;
     }
 
+    /** Gets player's score
+     * @return An integer representing player's score
+     */
     public int getScore() {
         return score;
     }
 
+    /** Set player's score
+     * @param score An integer representing player's score
+     */
     public void setScore(int score) {
         this.score = score;
     }
 
+    /** Moves the ball and player
+     *
+     */
     public void move() {
         player.move();
         ball.move();
     }
 
+    /** Determines output of impact
+     *
+     */
     public void findImpacts() {
         if (player.impact(ball)) {
             ball.reverseY();
@@ -168,6 +205,9 @@ public class Wall {
         }
     }
 
+    /** Determines effect of impact
+     * @return false
+     */
     private boolean impactWall() {
         for (Brick b : bricks) {
             switch (b.findImpact(ball)) {
