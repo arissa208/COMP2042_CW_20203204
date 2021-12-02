@@ -16,7 +16,6 @@ public class Crack {
     public static final int VERTICAL = 100;
     public static final int HORIZONTAL = 200;
 
-
     private final Brick brick;
     private GeneralPath crack;
 
@@ -32,7 +31,6 @@ public class Crack {
         this.steps = steps;
 
     }
-
 
     public GeneralPath draw() {
         return crack;
@@ -78,7 +76,6 @@ public class Crack {
                 makeCrack(impact, tmp);
 
                 break;
-
         }
     }
 

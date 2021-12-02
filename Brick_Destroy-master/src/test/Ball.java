@@ -50,7 +50,6 @@ abstract public class Ball {
         speedY = 0;
     }
 
-
     /** Creates the ball
      * @param center Position of ball
      * @param radiusA Vertical location of the ball
@@ -58,7 +57,6 @@ abstract public class Ball {
      * @return Shape of a ball
      */
     protected abstract Shape makeBall(Point2D center, int radiusA, int radiusB);
-
 
     /** Moves ball
      */
@@ -74,14 +72,21 @@ abstract public class Ball {
         ballFace = tmp;
     }
 
+    /** Reverse the horizontal movement of the ball
+     */
     public void reverseX() {
         speedX *= -1;
     }
 
+    /** Reverse the vertical movement of ball
+     */
     public void reverseY() {
         speedY *= -1;
     }
 
+    /** Moves the ball to a certain point
+     * @param p x,y coordinates of a point
+     */
     public void moveTo(Point p) {
         center.setLocation(p);
 
