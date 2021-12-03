@@ -35,7 +35,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     private boolean gaming;
 
-    public GameFrame(){
+    public GameFrame() {
         super();
 
         gaming = false;
@@ -44,18 +44,20 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
         gameBoard = new GameBoard(this);
 
-        homeMenu = new HomeMenu(this,new Dimension(450,450));
+        homeMenu = new HomeMenu(this, new Dimension(450, 450));
 
-        instructions = new Instructions(this, new Dimension(500,500));
-;
-        this.add(homeMenu,BorderLayout.CENTER);
+        instructions = new Instructions(this, new Dimension(500, 500));
+        this.add(homeMenu, BorderLayout.CENTER);
 
         this.setUndecorated(true);
 
 
     }
 
-    public void initialize(){
+    /**
+     * Initialize GameFrame
+     */
+    public void initialize() {
         this.setTitle(DEF_TITLE);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.pack();
@@ -63,10 +65,13 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.setVisible(true);
     }
 
-    public void enableGameBoard(){
+    /**
+     * Access Gameboard page
+     */
+    public void enableGameBoard() {
         this.dispose();
         this.remove(homeMenu);
-        this.add(gameBoard,BorderLayout.CENTER);
+        this.add(gameBoard, BorderLayout.CENTER);
         this.setUndecorated(false);
         initialize();
         /*to avoid problems with graphics focus controller is added here*/
@@ -74,23 +79,22 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     }
 
-    public void enableHomeMenu()
-    {
+    /**
+     * Access HomeMenu page
+     */
+    public void enableHomeMenu() {
         this.dispose();
         this.remove(instructions);
-        this.add(homeMenu,BorderLayout.CENTER);
+        this.add(homeMenu, BorderLayout.CENTER);
         this.setUndecorated(true);
         initialize();
+        this.addWindowFocusListener(this);
     }
 
-    private void autoLocate(){
-        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (size.width - this.getWidth()) / 2;
-        int y = (size.height - this.getHeight()) / 2;
-        this.setLocation(x,y);
-    }
-
-    public void enableInstruction(){
+    /**
+     * Access instructons page
+     */
+    public void enableInstruction() {
         this.dispose();
         this.remove(homeMenu);
         this.add(instructions, BorderLayout.CENTER);
@@ -98,6 +102,14 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         initialize();
         this.addWindowFocusListener(this);
     }
+
+    private void autoLocate() {
+        Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (size.width - this.getWidth()) / 2;
+        int y = (size.height - this.getHeight()) / 2;
+        this.setLocation(x, y);
+    }
+
     @Override
     public void windowGainedFocus(WindowEvent windowEvent) {
         /*
@@ -113,7 +125,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     @Override
     public void windowLostFocus(WindowEvent windowEvent) {
-        if(gaming)
+        if (gaming)
             gameBoard.onLostFocus();
 
     }
