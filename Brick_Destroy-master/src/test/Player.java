@@ -34,7 +34,12 @@ public class Player {
     private int min;
     private int max;
 
-    // constructor of pLayer class
+    /** Constructor of Player class
+     * @param ballPoint position of ball
+     * @param width witdh of pedal
+     * @param height height of pedal
+     * @param container shape of pedal
+     */
     public Player(Point ballPoint,int width,int height,Rectangle container) {
         this.ballPoint = ballPoint;
         moveAmount = 0;
