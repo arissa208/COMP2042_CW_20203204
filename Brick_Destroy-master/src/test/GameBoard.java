@@ -103,6 +103,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
     }
 
+    /** Initialize gameboard
+     *
+     */
     private void initialize(){
         this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));
         this.setFocusable(true);
@@ -112,6 +115,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         this.addMouseMotionListener(this);
     }
 
+    /** Build gameboard graphics
+     * @param g graphics of gameboard
+     */
     public void paint(Graphics g){
 
         Graphics2D g2d = (Graphics2D) g;
@@ -142,6 +148,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(tmp);
     }
 
+    /** Draws brick for every level in gameboard
+     * @param brick shape of brick
+     * @param g2d graphics of brick
+     */
     private void drawBrick(Brick brick,Graphics2D g2d){
         Color tmp = g2d.getColor();
 
@@ -155,6 +165,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(tmp);
     }
 
+    /** Draws ball in gameboard
+     * @param ball shape of ball
+     * @param g2d graphics of ball
+     */
     private void drawBall(Ball ball,Graphics2D g2d){
         Color tmp = g2d.getColor();
 
@@ -169,6 +183,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(tmp);
     }
 
+    /** Draws player pedal in gameboard
+     * @param p Player pedal
+     * @param g2d graphics of pedal
+     */
     private void drawPlayer(Player p,Graphics2D g2d){
         Color tmp = g2d.getColor();
 
@@ -182,6 +200,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(tmp);
     }
 
+    /** Draw menu
+     * @param g2d graphics of menu
+     */
     private void drawMenu(Graphics2D g2d){
         obscureGameBoard(g2d);
         drawPauseMenu(g2d);
@@ -202,10 +223,12 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(tmpColor);
     }
 
+    /** Draw pause menu
+     * @param g2d graphics
+     */
     private void drawPauseMenu(Graphics2D g2d){
         Font tmpFont = g2d.getFont();
         Color tmpColor = g2d.getColor();
-
 
         g2d.setFont(menuFont);
         g2d.setColor(MENU_COLOR);

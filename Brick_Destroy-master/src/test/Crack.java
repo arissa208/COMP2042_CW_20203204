@@ -43,17 +43,23 @@ public class Crack {
         return crack;
     }
 
+    /** Reset crack
+     *
+     */
     public void reset() {
         crack.reset();
     }
 
+    /** Makes a crack
+     * @param point position of crack
+     * @param direction direction of crack
+     */
     protected void makeCrack(Point2D point, int direction) {
         Rectangle bounds = brick.brickFace.getBounds();
 
         Point impact = new Point((int) point.getX(), (int) point.getY());
         Point start = new Point();
         Point end = new Point();
-
 
         switch (direction) {
             case LEFT:
@@ -86,6 +92,10 @@ public class Crack {
         }
     }
 
+    /** Determines where crack starts and ends
+     * @param start point where crack starts
+     * @param end point where crack ends
+     */
     protected void makeCrack(Point start, Point end) {
 
         GeneralPath path = new GeneralPath();
