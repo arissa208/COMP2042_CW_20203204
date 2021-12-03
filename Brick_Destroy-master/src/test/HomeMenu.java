@@ -45,23 +45,23 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     private static final float[] DASHES = {12, 6};
 
     // shapes
-    private Rectangle menuFace;
-    private Rectangle startButton;
-    private Rectangle menuButton;
-    private Rectangle insButton;
+    private final Rectangle menuFace;
+    private final Rectangle startButton;
+    private final Rectangle menuButton;
+    private final Rectangle insButton;
 
     // border
-    private BasicStroke borderStoke;
-    private BasicStroke borderStoke_noDashes;
+    private final BasicStroke borderStoke;
+    private final BasicStroke borderStoke_noDashes;
 
     // fonts
-    private Font greetingsFont;
-    private Font gameTitleFont;
-    private Font creditsFont;
-    private Font buttonFont;
-    private Font insFont;
+    private final Font greetingsFont;
+    private final Font gameTitleFont;
+    private final Font creditsFont;
+    private final Font buttonFont;
+    private final Font insFont;
 
-    private GameFrame owner;
+    private final GameFrame owner;
 
     private boolean startClicked;
     private boolean menuClicked;

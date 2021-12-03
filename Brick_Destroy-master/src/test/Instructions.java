@@ -50,6 +50,10 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
 
     private boolean returnClicked;
 
+    /** Represents description of Instructions page
+     * @param owner frame owner
+     * @param area area of frame
+     */
     public Instructions(GameFrame owner, Dimension area) {
 
         this.setFocusable(true);
@@ -75,10 +79,16 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
 
     }
 
+    /** Buil graphics of Instructions page
+     * @param g graphics of Instructions page
+     */
     public void paint(Graphics g) {
         drawMenu((Graphics2D) g);
     }
 
+    /** Build menu
+     * @param g2d graphics of instructions page
+     */
     public void drawMenu(Graphics2D g2d) {
 
         drawContainer(g2d);
@@ -106,6 +116,9 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
         g2d.setColor(prevColor);
     }
 
+    /** Create frame dimension for Instructions page
+     * @param g2d graphic of Instructions page
+     */
     private void drawContainer(Graphics2D g2d) {
         Color prev = g2d.getColor();
 
@@ -129,6 +142,9 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
         g2d.drawImage(picture, 0, 0, this);
     }
 
+    /** Set texts in the  Instructions page
+     * @param g2d graphics of Instructions page
+     */
     private void drawText(Graphics2D g2d) {
 
         g2d.setColor(TEXT_COLOR);
@@ -192,6 +208,9 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
 
     }
 
+    /**
+     * @param g2d dgraphics of Instructions page
+     */
     private void drawButton(Graphics2D g2d) {
 
         FontRenderContext frc = g2d.getFontRenderContext();
@@ -218,7 +237,6 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
             g2d.drawString(RETURN_TEXT, x, y);
         }
 
-        x = returnButton.x;
         y = returnButton.y;
 
         y *= 1.2;
@@ -230,9 +248,6 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
         Point p = mouseEvent.getPoint();
         if (returnButton.contains(p)) {
             owner.enableHomeMenu();
-
-        } else {
-            return;
         }
     }
 
@@ -242,9 +257,6 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
         if (returnButton.contains(p)) {
             returnClicked = true;
             repaint(returnButton.x, returnButton.y, returnButton.width + 1, returnButton.height + 1);
-
-        } else {
-            return;
         }
     }
 
@@ -253,8 +265,6 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
         if (returnClicked) {
             returnClicked = false;
             repaint(returnButton.x, returnButton.y, returnButton.width + 1, returnButton.height + 1);
-        } else {
-            return;
         }
     }
 
