@@ -67,6 +67,10 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
     private boolean menuClicked;
     private boolean insClicked;
 
+    /** Representing the HomeMenu
+     * @param owner gameboard frame
+     * @param area area of gameboard frame
+     */
     public HomeMenu(GameFrame owner, Dimension area) {
 
         this.setFocusable(true);
@@ -96,10 +100,16 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
+    /** Build HomeMenu graphics
+     * @param g homeMenu graphics
+     */
     public void paint(Graphics g) {
         drawMenu((Graphics2D) g);
     }
 
+    /** Build Menu
+     * @param g2d menu graphics
+     */
     public void drawMenu(Graphics2D g2d) {
 
         drawContainer(g2d);
@@ -126,6 +136,9 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.setColor(prevColor);
     }
 
+    /** Create frame dimension for HomeMenu
+     * @param g2d homeMenu graphics
+     */
     private void drawContainer(Graphics2D g2d) {
         Color prev = g2d.getColor();
 
@@ -150,6 +163,9 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         g2d.drawImage(picture, 0, 0, this);
     }
 
+    /** Set texts in HomeMenu
+     * @param g2d graphic of HomeMenu
+     */
     private void drawText(Graphics2D g2d) {
 
         g2d.setColor(TEXT_COLOR);
@@ -183,6 +199,9 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
 
     }
 
+    /** Sets buttons for HomeMenu
+     * @param g2d graphic of HomeMenu
+     */
     private void drawButton(Graphics2D g2d) {
 
         FontRenderContext frc = g2d.getFontRenderContext();
@@ -309,7 +328,7 @@ public class HomeMenu extends JComponent implements MouseListener, MouseMotionLi
         } else if (menuClicked) {
             menuClicked = false;
             repaint(menuButton.x, menuButton.y, menuButton.width + 1, menuButton.height + 1);
-        } else if (menuClicked) {
+        } else if (insClicked) {
             insClicked = false;
             repaint(insButton.x, insButton.y, insButton.width + 1, insButton.height + 1);
         }
