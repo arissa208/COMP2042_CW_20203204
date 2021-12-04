@@ -162,46 +162,26 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
         g2d.setFont(titleFont);
         g2d.drawString(HEADER, sX, sY);
 
-        sX = (int) (menuFace.getWidth() - titleRect.getWidth()) / 3;
-        sY += (int) titleRect.getHeight() * 1.1;  //add 10% of String height between the two strings
         sX = (int) (menuFace.getWidth() - insRect.getWidth()) / 4;
         sY += (int) insRect.getHeight() * 1.1;
 
         g2d.setFont(textFont);
         g2d.drawString(INS_TEXT, sX, sY);
 
-        sX = (int) (menuFace.getWidth() - insRect.getWidth()) / 4;
-        sY += (int) insRect.getHeight() * 1.2;
-
         g2d.setFont(textFont);
         g2d.drawString(INS_TEXT2, sX, sY);
-
-        sX = (int) (menuFace.getWidth() - insRect.getWidth()) / 4;
-        sY += (int) insRect.getHeight() * 1.2;
 
         g2d.setFont(textFont);
         g2d.drawString(INS_TEXT3, sX, sY);
 
-        sX = (int) (menuFace.getWidth() - insRect.getWidth()) / 4;
-        sY += (int) insRect.getHeight() * 1.2;
-
         g2d.setFont(textFont);
         g2d.drawString(INS_TEXT4, sX, sY);
-
-        sX = (int) (menuFace.getWidth() - insRect.getWidth()) / 4;
-        sY += (int) insRect.getHeight() * 1.2;
 
         g2d.setFont(textFont);
         g2d.drawString(INS_TEXT5, sX, sY);
 
-        sX = (int) (menuFace.getWidth() - insRect.getWidth()) / 4;
-        sY += (int) insRect.getHeight() * 1.2;
-
         g2d.setFont(textFont);
         g2d.drawString(INS_TEXT6, sX, sY);
-
-        sX = (int) (menuFace.getWidth() - insRect.getWidth()) / 4;
-        sY += (int) insRect.getHeight() * 1.2;
 
         g2d.setFont(textFont);
         g2d.drawString(INS_TEXT7, sX, sY);
