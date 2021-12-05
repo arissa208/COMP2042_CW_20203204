@@ -336,6 +336,9 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
             repaint();
         }
         else if(exitButtonRect.contains(p)){
+            tmpScore = Integer.toString(wall.getScore());
+            ImageIcon icon = new ImageIcon("gameover.png");
+            JOptionPane.showMessageDialog(null, "Your score is " + tmpScore + "!", "GAME OVER", JOptionPane.INFORMATION_MESSAGE, icon);
             System.exit(0);
         }
 
