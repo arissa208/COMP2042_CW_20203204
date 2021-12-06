@@ -34,19 +34,20 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
     private static final float[] DASHES = {12, 6};
 
     // border
-    private BasicStroke borderStoke;
-    private BasicStroke borderStoke_noDashes;
+    private final BasicStroke borderStoke;
+    private final BasicStroke borderStoke_noDashes;
 
     // shapes
-    private Rectangle menuFace;
-    private Rectangle returnButton;
+    private final Rectangle
+            menuFace;
+    private final Rectangle returnButton;
 
     // fonts
-    private Font titleFont;
-    private Font textFont;
-    private Font returnFont;
+    private final Font titleFont;
+    private final Font textFont;
+    private final Font returnFont;
 
-    private GameFrame owner;
+    private final GameFrame owner;
 
     private boolean returnClicked;
 
@@ -163,25 +164,43 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
         g2d.drawString(HEADER, sX, sY);
 
         sX = (int) (menuFace.getWidth() - insRect.getWidth()) / 4;
-        sY += (int) insRect.getHeight() * 1.1;
+        sY += (int) insRect.getHeight() * 3;
 
         g2d.setFont(textFont);
         g2d.drawString(INS_TEXT, sX, sY);
 
+        sX = (int) (menuFace.getWidth() - insRect.getWidth()) / 4;
+        sY += (int) insRect.getHeight() * 1.1;
+
         g2d.setFont(textFont);
         g2d.drawString(INS_TEXT2, sX, sY);
+
+        sX = (int) (menuFace.getWidth() - insRect.getWidth()) / 4;
+        sY += (int) insRect.getHeight() * 1.1;
 
         g2d.setFont(textFont);
         g2d.drawString(INS_TEXT3, sX, sY);
 
+        sX = (int) (menuFace.getWidth() - insRect.getWidth()) / 4;
+        sY += (int) insRect.getHeight() * 1.1;
+
         g2d.setFont(textFont);
         g2d.drawString(INS_TEXT4, sX, sY);
+
+        sX = (int) (menuFace.getWidth() - insRect.getWidth()) / 4;
+        sY += (int) insRect.getHeight() * 1.1;
 
         g2d.setFont(textFont);
         g2d.drawString(INS_TEXT5, sX, sY);
 
+        sX = (int) (menuFace.getWidth() - insRect.getWidth()) / 4;
+        sY += (int) insRect.getHeight() * 1.1;
+
         g2d.setFont(textFont);
         g2d.drawString(INS_TEXT6, sX, sY);
+
+        sX = (int) (menuFace.getWidth() - insRect.getWidth()) / 4;
+        sY += (int) insRect.getHeight() * 1.1;
 
         g2d.setFont(textFont);
         g2d.drawString(INS_TEXT7, sX, sY);
@@ -216,10 +235,6 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
             g2d.draw(returnButton);
             g2d.drawString(RETURN_TEXT, x, y);
         }
-
-        y = returnButton.y;
-
-        y *= 1.2;
 
     }
 
