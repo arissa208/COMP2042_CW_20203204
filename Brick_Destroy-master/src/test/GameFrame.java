@@ -19,19 +19,17 @@ package test;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.datatransfer.StringSelection;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
-import java.awt.event.WindowListener;
 
 
 public class GameFrame extends JFrame implements WindowFocusListener {
 
     private static final String DEF_TITLE = "Brick Destroy";
 
-    private GameBoard gameBoard;
-    private HomeMenu homeMenu;
-    private Instructions instructions;
+    private final GameBoard gameBoard;
+    private final HomeMenu homeMenu;
+    private final Instructions instructions;
 
     private boolean gaming;
 
