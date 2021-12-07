@@ -70,7 +70,7 @@ public class Wall {
             speedX = 4;
         } while (speedX == 0);
         do {
-            speedY = -4;
+            speedY = -3;
         } while (speedY == 0);
 
         ball.setSpeed(speedX, speedY);
@@ -261,7 +261,7 @@ public class Wall {
             speedX = 4;
         } while (speedX == 0);
         do {
-            speedY = -4;
+            speedY = -3;
         } while (speedY == 0);
 
         ball.setSpeed(speedX, speedY);
@@ -293,11 +293,11 @@ public class Wall {
     }
 
     public void setBallXSpeed(int s) {
-        ball.setXSpeed(s);
+        ball.setSpeedX(s);
     }
 
     public void setBallYSpeed(int s) {
-        ball.setYSpeed(s);
+        ball.setSpeedY(s);
     }
 
     public void resetBallCount() {
