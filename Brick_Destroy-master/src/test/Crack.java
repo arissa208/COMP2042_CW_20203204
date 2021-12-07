@@ -17,10 +17,10 @@ public class Crack {
     public static final int HORIZONTAL = 200;
 
     private final Brick brick;
-    private GeneralPath crack;
+    private final GeneralPath crack;
 
-    private int crackDepth;
-    private int steps;
+    private final int crackDepth;
+    private final int steps;
 
     /** Creates a crack
      * @param brick Brick element
@@ -115,8 +115,8 @@ public class Crack {
             x = (i * w) + start.x;
             y = (i * h) + start.y + randomInBounds(bound);
 
-            if (inMiddle(i, CRACK_SECTIONS, steps))
-                y += jumps(jump, JUMP_PROBABILITY);
+            if (inMiddle(i, steps))
+                y += jumps(jump);
 
             path.lineTo(x, y);
 
@@ -131,16 +131,16 @@ public class Crack {
         return Brick.getRnd().nextInt(n) - bound;
     }
 
-    private boolean inMiddle(int i, int steps, int divisions) {
-        int low = (steps / divisions);
+    private boolean inMiddle(int i, int divisions) {
+        int low = (Crack.CRACK_SECTIONS / divisions);
         int up = low * (divisions - 1);
 
         return (i > low) && (i < up);
     }
 
-    private int jumps(int bound, double probability) {
+    private int jumps(int bound) {
 
-        if (Brick.getRnd().nextDouble() > probability)
+        if (Brick.getRnd().nextDouble() > Crack.JUMP_PROBABILITY)
             return randomInBounds(bound);
         return 0;
 
