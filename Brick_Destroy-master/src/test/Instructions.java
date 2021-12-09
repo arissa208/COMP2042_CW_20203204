@@ -38,8 +38,7 @@ public class Instructions extends JComponent implements MouseListener, MouseMoti
     private final BasicStroke borderStoke_noDashes;
 
     // shapes
-    private final Rectangle
-            menuFace;
+    private final Rectangle menuFace;
     private final Rectangle returnButton;
 
     // fonts
