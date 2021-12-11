@@ -39,6 +39,11 @@ public class Wall {
     private int score;
 
     private final Point startPoint;
+
+    public void setBrickCount(int brickCount) {
+        this.brickCount = brickCount;
+    }
+
     private int brickCount;
     private int ballCount;
     private boolean ballLost;
@@ -232,7 +237,7 @@ public class Wall {
         return ((p.getX() < area.getX()) || (p.getX() > (area.getX() + area.getWidth())));
     }
 
-    public int getBrickCount() {
+    public static int getBrickCount() {
         return brickCount;
     }
 
