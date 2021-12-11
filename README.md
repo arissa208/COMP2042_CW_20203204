@@ -15,7 +15,7 @@ the game kept showing bugs.
 
 HOW TO RUN PROJECT
 1. Download and extract the zip file
-2. Copy file directory and open project in Intellij
+2. Copy file directory "Brick_Destroy-master" and open project in Intellij
 3. Go to "GraphicsMain" class and run class.
 4. Play the game!
 
