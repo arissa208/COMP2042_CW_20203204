@@ -40,11 +40,7 @@ public class Wall {
 
     private final Point startPoint;
 
-    public void setBrickCount(int brickCount) {
-        this.brickCount = brickCount;
-    }
-
-    private int brickCount;
+    private static int brickCount;
     private int ballCount;
     private boolean ballLost;
 
