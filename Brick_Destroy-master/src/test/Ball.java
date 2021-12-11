@@ -18,8 +18,8 @@ abstract public class Ball {
     private final Color border;
     private final Color inner;
 
-    private int speedX;
-    private int speedY;
+    private static int speedX;
+    private static int speedY;
 
 
     /** Represents the description of ball
@@ -109,14 +109,14 @@ abstract public class Ball {
     /** Sets the horizontal speed of ball
      * @param s Speed of ball
      */
-    public void setSpeedX(int s) {
+    public static void setSpeedX(int s) {
         speedX = s;
     }
 
     /** Sets tge vertical speed of ball
      * @param s Speed of ball
      */
-    public void setSpeedY(int s) {
+    public static void setSpeedY(int s) {
         speedY = s;
     }
 
@@ -163,14 +163,14 @@ abstract public class Ball {
     /** Gets horizontal speed of ball
      * @return Integer speed of ball
      */
-    public int getSpeedX() {
+    public static int getSpeedX() {
         return speedX;
     }
 
     /** Gets vertical speed of ball
      * @return Integer vertical speed of ball
      */
-    public int getSpeedY() {
+    public static int getSpeedY() {
         return speedY;
     }
 
